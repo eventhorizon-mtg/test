@@ -9,7 +9,7 @@ Questo repository fornisce uno scheletro minimale ma completo per un sito static
 ## Script
 
 ```powershell
-cd C:\Users\giorg\OneDrive\Documenti\GitHub\test
+cd C:\\Users\\giorg\\OneDrive\\Documenti\\GitHub\\test
 npm install
 npm run dev       # dev server (http://localhost:4321)
 npm run build     # produce la build statica in ./dist
@@ -27,7 +27,7 @@ npm run preview   # anteprima della build locale
 - `src/styles/global.css`: Tailwind base + piccoli default.
 - `public/`: asset statici (favicon, robots.txt).
 - `.github/workflows/pages.yml`: pipeline GitHub Pages aggiornata.
- - `src/pages/rss.xml.js`: feed RSS generato da `@astrojs/rss`.
+- `src/pages/rss.xml.js`: feed RSS generato da `@astrojs/rss`.
 
 ## GitHub Pages (project pages)
 
@@ -50,15 +50,17 @@ Se usi un nome utente/organizzazione diverso o un repo differente, aggiorna `sit
 ## Aggiungere un post
 
 1. Crea un file Markdown in `src/content/posts/nuovo-post.md` con frontmatter:
+
    ```md
    ---
    title: "Titolo"
    description: "Descrizione breve"
    pubDate: 2025-01-01
    ---
-   
+
    Contenuto del post...
    ```
+
 2. Verrà indicizzato automaticamente nella home e in `/posts/` e avrà la pagina `/posts/nuovo-post/`.
 
 ## Sitemap e RSS
