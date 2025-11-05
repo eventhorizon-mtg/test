@@ -14,14 +14,16 @@ const year = new Date().getFullYear();
     <meta property="og:description" content={description} />
     <meta property="og:url" content={Astro.url?.href} />
     <link rel="canonical" href={Astro.url?.href} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.svg`} type="image/svg+xml" />
   </head>
   <body class="min-h-screen flex flex-col">
     <header class="bg-slate-800 text-white p-4">
       <div class="container mx-auto flex items-center gap-6">
         <a href={import.meta.env.BASE_URL} class="text-xl font-bold">Sito Astro</a>
-        <nav class="text-sm opacity-90">
+        <nav class="text-sm opacity-90 flex gap-4">
+          <a href={import.meta.env.BASE_URL} class="hover:underline">Home</a>
           <a href={`${import.meta.env.BASE_URL}posts/`} class="hover:underline">Blog</a>
+          <a href={`${import.meta.env.BASE_URL}rss.xml`} class="hover:underline">RSS</a>
         </nav>
       </div>
     </header>
