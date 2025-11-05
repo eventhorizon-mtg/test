@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://eventhorizon-mtg.github.io/test/sitemap-index.xml

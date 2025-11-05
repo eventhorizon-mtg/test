@@ -1,7 +1,11 @@
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
-// If you plan to deploy to GitHub Pages for repository 'test',
-// you can set site: 'https://<your-username>.github.io/test'
+// Config per GitHub Pages (project pages):
+// - site: URL completo del sito
+// - base: sottopercorso del repo
 export default defineConfig({
-  // site: 'https://eventhorizon-mtg.github.io/test',
+  site: 'https://eventhorizon-mtg.github.io/test',
+  base: '/test/',
+  integrations: [sitemap()],
 });

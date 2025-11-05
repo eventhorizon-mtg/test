@@ -1,0 +1,38 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((p) => ({ params: { slug: p.slug } }));
+}
+
+const slug = Astro.params.slug!;
+const entry = await getEntry('posts', slug);
+const { Content, headings } = await entry.render();
+const { title, description, pubDate } = entry.data;
+---
+
+<Base title={title} description={description ?? 'Articolo del blog'}>
+  <article class="prose prose-slate max-w-none">
+    <header class="mb-6">
+      <h1 class="text-3xl font-bold">{title}</h1>
+      <p class="text-sm text-slate-500">
+        {new Date(pubDate).toLocaleDateString('it-IT', { year: 'numeric', month: 'long', day: 'numeric' })}
+      </p>
+    </header>
+    <Content />
+  </article>
+
+  {headings && headings.length > 2 && (
+    <aside class="mt-8 p-4 bg-slate-50 rounded border border-slate-200">
+      <h2 class="font-semibold mb-2">Indice</h2>
+      <ul class="list-disc ml-6 space-y-1">
+        {headings.filter(h => h.depth <= 3).map(h => (
+          <li><a class="text-sky-600 hover:underline" href={`#${h.slug}`}>{h.text}</a></li>
+        ))}
+      </ul>
+    </aside>
+  )}
+</Base>
+

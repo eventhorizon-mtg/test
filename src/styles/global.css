@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@plugin '@tailwindcss/typography';
 
 /* Small sensible defaults (avoid @apply on base utilities to be compatible with latest Tailwind/PostCSS setup) */
 html, body {
